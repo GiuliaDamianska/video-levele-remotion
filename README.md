@@ -1,54 +1,65 @@
-# Remotion video
+# Levele — Instagram Reel built with Remotion
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+A 30-second vertical video (1080×1920) for Instagram Reels, built entirely in React + TypeScript. No video editing software — just code.
 
-Welcome to your Remotion project!
+## What it is
 
-## Commands
+**"Levele"** is an animated educational Reel walking through 5 levels of Claude AI usage, from beginner to advanced. Each level gets a full-screen kinetic reveal with spring physics and scan line effects.
 
-**Install Dependencies**
+## Preview
 
-```console
-npm i
+- 900 frames @ 30fps = 30 seconds
+- Format: 1080×1920 (Instagram Reels / TikTok)
+- Language: Polish
+
+## Stack
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| [Remotion](https://remotion.dev) | 4.0.434 | React-based video framework |
+| React | 19 | UI |
+| TypeScript | 5.9 | Type safety |
+| `@remotion/google-fonts` | 4.0.434 | Caveat font loading |
+| Tailwind CSS v4 | 4.0 | Utility styles |
+
+## Animation techniques
+
+- `spring()` + `interpolate()` for all motion — no CSS transitions
+- SVG `stroke-dashoffset` for draw-on line animations
+- Kinetic typography with full-screen number reveals
+- Scan line sweep effect per level
+- Flash transitions between levels
+- Animated progress bar (gamification)
+- SVG `feTurbulence` grain texture overlay
+
+## Getting started
+
+```bash
+npm install
+npm run dev        # opens Remotion Studio at localhost:3000
 ```
 
-**Start Preview**
+Select **Levele** from the composition list.
 
-```console
-npm run dev
+## Render to video
+
+```bash
+npx remotion render Levele out/levele.mp4
 ```
 
-**Render video**
+## Project structure
 
-```console
-npx remotion render
 ```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
+src/
+  Levele.tsx          # Main composition (all animation logic)
+  Root.tsx            # Composition registry
+  components/
+    Background.tsx    # Animated orbs, particles, grid, grain
+    GlassCard.tsx     # Frosted glass card (earlier version)
+    Particles.tsx     # 80-dot particle field
+    PyramidLayer.tsx  # Pyramid layer component (earlier version)
 ```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
 
 ## License
 
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Personal/educational use. For commercial use see [Remotion license](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
